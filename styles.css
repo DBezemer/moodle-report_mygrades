@@ -1,0 +1,51 @@
+.path-report-mygrades table.grades {
+	color:#666;
+	font-size:12px;
+	background:#eaebec;
+	width: 100%;
+	border:#ccc 1px solid;
+}
+
+.path-report-mygrades table.grades th {
+	padding:8px 10px 8px 10px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+	background: #ededed;
+}
+
+.path-report-mygrades table.grades th:first-child {
+	text-align: center;
+	padding-left:10px;
+	width: 80%;
+}
+
+.path-report-mygrades table.grades th.sorting { background: url('../report/mygrades/images/sort_both.png') no-repeat center right; }
+.path-report-mygrades table.grades th.sorting_asc { background: url('../report/mygrades/images/sort_asc.png') no-repeat center right; }
+.path-report-mygrades table.grades th.sorting_desc { background: url('../report/mygrades/images/sort_desc.png') no-repeat center right; }
+
+.path-report-mygrades table.grades tr {
+	text-align: center;
+	padding-left:10px;
+}
+.path-report-mygrades table.grades td:first-child {
+	text-align: center;
+	padding-left:5px;
+	border-left: 0;
+}
+.path-report-mygrades table.grades td, .path-report-mygrades table.dataTable tr.odd {
+	padding:5px;
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+	min-width: 80px;
+	background: #fafafa !important;
+}
+.path-report-mygrades table.grades tr.even td, .path-report-mygrades table.dataTable tr.even {
+	background: #f6f6f6 !important;
+}
+.path-report-mygrades table.grades tr:last-child td {
+	border-bottom:0;
+}
+.path-report-mygrades table.grades tr:hover td {
+	background: #f2f2f2 !important;
+}
