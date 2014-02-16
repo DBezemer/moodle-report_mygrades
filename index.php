@@ -59,10 +59,10 @@ if ($userid != $USER->id && !has_capability('moodle/user:viewdetails', $usercont
 }
 
 global $DB,$CFG;
-$username = $DB->get_field('user', 'username', array('id' => $userid, 'deleted' => 0));
-$userlinked = "<a href='".$CFG->wwwroot."/user/view.php?id=".$userid."'>".$username."</a>";
+$user = $DB->get_record('user', array('id' => $userid, 'deleted' => 0));
+$userlinked = "<a href='".$CFG->wwwroot."/user/view.php?id=".$userid."'>".$user->firstname." ".$user->lastname."</a>";
 
-if (empty($username)) {
+if (empty($user->username)) {
 	echo $OUTPUT->notification(get_string('userdeleted'));
 	die;
 }
