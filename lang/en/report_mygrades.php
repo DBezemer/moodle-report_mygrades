@@ -29,3 +29,4 @@ $string['blocktitle']='My Grades';
 $string['blockstring']='My Grades string';
 $string['gradetblheader_course'] = 'Course';
 $string['gradetblheader_grade'] = 'Grade';
+$string['noenrolments'] = 'This user has not yet been enrolled in any courses';

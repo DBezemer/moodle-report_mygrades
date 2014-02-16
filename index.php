@@ -43,8 +43,19 @@ $PAGE->requires->jquery_plugin('dataTables', 'report_mygrades');
 
 require_login();
 
+$userid = optional_param('userid', 0, PARAM_INT);   // user id
+global $DB,$CFG;
+$username = $DB->get_field('user', 'username', array('id' => $userid, 'deleted' => 0));
+$userlinked = "<a href='".$CFG->wwwroot."/user/view.php?id=".$userid."'>".$username."</a>";
+
 echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('pluginname', 'report_mygrades'));
+
+if (empty($username)) {
+	echo $OUTPUT->notification(get_string('userdeleted'));
+	die;
+}
+
+echo $OUTPUT->heading(get_string('pluginname', 'report_mygrades')." ".get_string('for', 'calendar')." ".$userlinked);
 
 class report_mygrades extends block_base {
 	public function init() {
@@ -64,7 +75,7 @@ class report_mygrades extends block_base {
 			$userid = $USER->id;
 		}
  
-		$this->content         =  new stdClass;
+		$this->content = new stdClass;
 
 		/// return tracking object
 		$gpr = new grade_plugin_return(array('type'=>'report', 'plugin'=>'overview', 'userid'=>$USER->id));
@@ -134,12 +145,12 @@ class report_mygrades extends block_base {
 			}
 			
 			if (count($data)==0) {
-				return $OUTPUT->notification(get_string('nocourses', 'grades'));
+				return $OUTPUT->notification(get_string('noenrolments', 'report_mygrades'));
 			} else {
 				return $data;
 			}
 		} else {
-			return $OUTPUT->notification(get_string('nocourses', 'grades'));
+			return $OUTPUT->notification(get_string('noenrolments', 'report_mygrades'));
 		}
 	}
 }
