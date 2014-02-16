@@ -43,12 +43,24 @@ $PAGE->requires->jquery_plugin('dataTables', 'report_mygrades');
 
 require_login();
 
+echo $OUTPUT->header();
+
 $userid = optional_param('userid', 0, PARAM_INT);   // user id
+
+if (empty($userid)) {
+	$userid = $USER->id;
+	$usercontext = context_user::instance($userid, MUST_EXIST);
+} else {
+	$usercontext = context_user::instance($userid, MUST_EXIST);
+}
+if ($userid != $USER->id && !has_capability('moodle/user:viewdetails', $usercontext)) {
+	echo $OUTPUT->notification(get_string('usernotavailable', 'error'));
+	die;
+}
+
 global $DB,$CFG;
 $username = $DB->get_field('user', 'username', array('id' => $userid, 'deleted' => 0));
 $userlinked = "<a href='".$CFG->wwwroot."/user/view.php?id=".$userid."'>".$username."</a>";
-
-echo $OUTPUT->header();
 
 if (empty($username)) {
 	echo $OUTPUT->notification(get_string('userdeleted'));
