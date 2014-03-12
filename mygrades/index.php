@@ -16,10 +16,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * My Grades Block.
+ * My Grades Report.
  *
- * @package   block_mygrades
- * @author    Karen Holland <kholland.dev@gmail.com>, Mei Jin, Jiajia Chen
+ * @package   report_mygrades
+ * @author    David Bezemer <david.bezemer@uplearning.nl>
+ * @credits   Based on original work block_mygrades by Karen Holland, Mei Jin, Jiajia Chen
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -71,7 +72,7 @@ echo $OUTPUT->heading(get_string('pluginname', 'report_mygrades')." ".get_string
 
 class report_mygrades extends block_base {
 	public function init() {
-		$this->title = get_string('mygrades', 'report_mygrades');
+		$this->title = get_string('my_grades', 'report_mygrades');
 	}
 	
 	public function get_content() {

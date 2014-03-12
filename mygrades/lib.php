@@ -1,4 +1,5 @@
 <?php
+
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -15,13 +16,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Public API of the mygrades report.
+ * My Grades Report.
  *
- * Defines the APIs used by mygrades reports
- *
- * @package    report_mygrades
- * @copyright  2014 onwards David Bezemer
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package   report_mygrades
+ * @author    David Bezemer <david.bezemer@uplearning.nl>
+ * @credits   Based on original work block_mygrades by Karen Holland, Mei Jin, Jiajia Chen
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
