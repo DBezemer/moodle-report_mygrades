@@ -26,6 +26,6 @@
 
 $plugin->version=2014031200;
 $plugin->component = 'report_mygrades';
-$plugin->requires=2011070100;
+$plugin->requires=2013051400;
 $plugin->release = '1.1 (Build: 2014031200)';
 $plugin->maturity  = MATURITY_STABLE;
