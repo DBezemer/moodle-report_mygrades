@@ -29,6 +29,7 @@ require_once($CFG->libdir . '/gradelib.php');
 require_once($CFG->dirroot . '/grade/report/lib.php');
 require_once $CFG->dirroot . '/grade/report/overview/lib.php';
 require_once $CFG->dirroot . '/grade/lib.php';
+require_once $CFG->dirroot . '/blocks/moodleblock.class.php';
 
 global $PAGE;
 $url = new moodle_url('/report/mygrades/index.php');
