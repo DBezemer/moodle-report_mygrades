@@ -36,10 +36,10 @@ defined('MOODLE_INTERNAL') || die;
  
 function report_mygrades_extend_navigation(global_navigation $navigation) {
 	$url = new moodle_url('/report/mygrades/index.php', array('course' => $course->id));
-	$navigation->add(get_string('pluginname', 'report_mygrades'), $url, navigation_node::TYPE_SETTING, null, null, new pix_icon('i/report', ''));
+	$navigation->add(get_string('pluginname', 'report_mygrades'), $url, null, null, new pix_icon('i/report', ''));
 }
 
-function report_mygrades_extend_navigation_user($navigation, $user, $course) {
+ function report_mygrades_extend_navigation_user($navigation, $user, $course) {
 	$url = new moodle_url('/report/mygrades/index.php' , array('userid'=>$user->id));
     $navigation->add(get_string('pluginname', 'report_mygrades'), $url, navigation_node::TYPE_SETTING, null, null, new pix_icon('i/report', ''));
 }
