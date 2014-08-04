@@ -24,8 +24,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version=2014031200;
+$plugin->version = 2014080400;
 $plugin->component = 'report_mygrades';
-$plugin->requires=2013051400;
-$plugin->release = '1.1 (Build: 2014031200)';
-$plugin->maturity  = MATURITY_STABLE;
+$plugin->requires = 2013051400;
+$plugin->release = '1.2 (Build: 2014031200)';
+$plugin->maturity = MATURITY_STABLE;

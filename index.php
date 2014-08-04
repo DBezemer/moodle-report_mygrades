@@ -26,16 +26,14 @@
 
 require('../../config.php');
 require_once($CFG->libdir . '/gradelib.php');
-require_once($CFG->dirroot . '/grade/report/lib.php');
 require_once $CFG->dirroot . '/grade/report/overview/lib.php';
 require_once $CFG->dirroot . '/grade/lib.php';
-require_once $CFG->dirroot . '/blocks/moodleblock.class.php';
 
-global $PAGE;
+global $PAGE, $COURSE;
 $url = new moodle_url('/report/mygrades/index.php');
 $PAGE->set_url($url);
 $PAGE->set_pagelayout('report');
-$PAGE->set_context(context_course::instance(1));
+$PAGE->set_context(context_course::instance($COURSE->id));
 $PAGE->navigation->add(get_string('pluginname', 'report_mygrades'), $url);
 $PAGE->set_heading($COURSE->fullname);
 $PAGE->set_title(get_string('pluginname', 'report_mygrades'));
@@ -95,7 +93,7 @@ class report_mygrades extends block_base {
 		$gpr = new grade_plugin_return(array('type'=>'report', 'plugin'=>'overview', 'userid'=>$USER->id));
  
 		// Create a report instance
-		$context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+		$context = context_course::instance($COURSE->id);
 		$report = new grade_report_overview($userid, $gpr, $context);
 
 		$newdata=$this->grade_data($report);
@@ -110,12 +108,12 @@ class report_mygrades extends block_base {
 					$newtext.="<tr><td>{$newgrade[0]}</td><td>{$newgrade[1]}</td></tr>";
 				}
 				$newtext.="</table>";
-				$this->content->text.=$newtext;
+				$this->content->text = $newtext;
 			}
 		}
 		else
 		{
-			$this->content->text.=$newdata;
+			$this->content->text = $newdata;
 		}
 		return $this->content;
 	}
@@ -136,7 +134,7 @@ class report_mygrades extends block_base {
 					continue;
 				}
 
-				$coursecontext = get_context_instance(CONTEXT_COURSE, $course->id);
+				$coursecontext = context_course::instance($course->id);
 
 				if (!$course->visible && !has_capability('moodle/course:viewhiddencourses', $coursecontext)) {
 					// The course is hidden and the user isn't allowed to see it
